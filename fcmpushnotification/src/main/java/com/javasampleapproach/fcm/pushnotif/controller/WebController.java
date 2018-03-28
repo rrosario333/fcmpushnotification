@@ -34,12 +34,12 @@ public class WebController {
 		body.put("priority", "high");
 
 		JSONObject notification = new JSONObject();
-		notification.put("title", "JPMC Notification");
+		notification.put("title", "Notification");
 		notification.put("body", "Happy Message!");
 		
 		JSONObject data = new JSONObject();
-		data.put("message", "Boardroom message");
-		data.put("image", "boardroom image url");
+		data.put("message", "message");
+		data.put("image", " image url");
 
 		body.put("notification", notification);
 		body.put("data", data);
