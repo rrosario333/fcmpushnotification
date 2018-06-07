@@ -34,7 +34,7 @@ public class FCMHelper {
     /**
      * Your SECRET server key
      */
-    private static final String FCM_SERVER_KEY = "AIzaSyDldEu0ELTc23HEpTRMjbs2alngSvl9S10";
+    private static final String FCM_SERVER_KEY = "AAAAxAhyM1U:APA91bFLgdr5635Nh1xe2kMXOwo6JaZ7wQV35cGszm9iSnvuwCghesYfaG3eMq-vEKmIZHB09bp6P3gvbA6x7RXRBVCAGNr-1dnZ1Us6OjNYuMbTbZuKdKDMcHS5wVLd8FGPmSkOHj4i";
 
     public static FCMHelper getInstance() {
         if (instance == null) instance = new FCMHelper();
@@ -83,6 +83,14 @@ public class FCMHelper {
             sendObject.addProperty(type, typeParameter);
             result = sendFcmMessage(sendObject, notificationObject, dataObject);
         }
+        
+        if (type.equals("token") || type.equals(TYPE_CONDITION)) {
+            JsonObject sendObject = new JsonObject();
+            sendObject.addProperty(type, typeParameter);
+            result = sendFcmMessage(sendObject, notificationObject, dataObject);
+        }
+        
+        
         return result;
     }
 
@@ -139,6 +147,8 @@ public class FCMHelper {
         if (dataObject != null) sendObject.add("data", dataObject);
 
         String data = sendObject.toString();
+        
+        System.out.println(data);
 
         StringEntity entity = new StringEntity(data);
 

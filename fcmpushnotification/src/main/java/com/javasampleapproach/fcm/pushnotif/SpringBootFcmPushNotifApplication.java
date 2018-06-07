@@ -8,5 +8,6 @@ public class SpringBootFcmPushNotifApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootFcmPushNotifApplication.class, args);
+	
 	}
 }

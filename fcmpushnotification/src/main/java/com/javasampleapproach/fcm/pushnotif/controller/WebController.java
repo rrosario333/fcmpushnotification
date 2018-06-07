@@ -21,16 +21,29 @@ import com.javasampleapproach.fcm.pushnotif.service.FCMHelper;
 @RestController
 public class WebController {
 
-	private final String TOPIC = "fcmpushnotification-a59b8";
+	private final String TOPIC = "notification-a60d4";
 	
 	@Autowired
 	AndroidPushNotificationsService androidPushNotificationsService;
 
 	@RequestMapping(value = "/send", method = RequestMethod.GET, produces = "application/json")
 	public ResponseEntity<String> send() throws JSONException {
-
+		
+		/*{
+			  "message":{
+			    "token" : "bk3RNwTe3H0:CI2k_HHwgIpoDKCIZvvDMExUdFQ3P1...",
+			    "notification" : {
+			      "body" : "This is an FCM notification message!",
+			      "title" : "FCM Message",
+			      }
+			   }
+			}*/
+		//JSONObject message = new JSONObject();
+		
+		
 		JSONObject body = new JSONObject();
-		body.put("to", "/topics/" + TOPIC);
+	  //  body.put("to", "/topics/" + TOPIC);
+		body.put("to",  "fr8ZLnotKiE:APA91bFy67egxihx528fE4Fya5Mqxfqwyz5PO47cfGxDHEc-eUXDhXhYHfBSEPkx7oHd1kVV4t3xQ0DO1BcXvBgHmlqHm7wg6SveRD9fnLLHujAljx3kSpcoP4O4c_fUHBY1XclrhSSZ");
 		body.put("priority", "high");
 
 		JSONObject notification = new JSONObject();
@@ -44,7 +57,7 @@ public class WebController {
 		body.put("notification", notification);
 		body.put("data", data);
 
-		
+		//message.put("message",  body);
 		
 		/*JsonObject notificationObject = new JsonObject();
 		notificationObject.addProperty("title", "JSA Notification");
@@ -53,9 +66,10 @@ public class WebController {
 		dataObject.addProperty("Key-1", "JSA Data 1");
 		dataObject.addProperty("Key-2", "JSA Data 2");
 		
+		String res=null;
 		FCMHelper helper=FCMHelper.getInstance();
 		try {
-			helper.sendNotifictaionAndData("to", "fcmpushnotification-a59b8", notificationObject, dataObject);
+			res=helper.sendNotifictaionAndData("to", "fr8ZLnotKiE:APA91bFy67egxihx528fE4Fya5Mqxfqwyz5PO47cfGxDHEc-eUXDhXhYHfBSEPkx7oHd1kVV4t3xQ0DO1BcXvBgHmlqHm7wg6SveRD9fnLLHujAljx3kSpcoP4O4c_fUHBY1XclrhSSZ", notificationObject, dataObject);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -83,5 +97,9 @@ public class WebController {
 		}
 
 		return new ResponseEntity<>("Push Notification ERROR!", HttpStatus.BAD_REQUEST);
+	
 	}
+	//	return new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
+	//}
+		
 }

@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class AndroidPushNotificationsService {
 
-	private static final String FIREBASE_SERVER_KEY = "AAAA_M6E1hE:APA91bFoVtBkVa6yuul81yBFJwpNEr-2GKd8J3vvX_J_khZ6xEzDSKNYTRI3Ao556COZo4ygm7cibIwFbMymI_67klTqKDGHaJwvJ3TBvVP2Xn4Df8PYcT4vd3Ivs4MePK6QU59PgMmi";
+	private static final String FIREBASE_SERVER_KEY = "AAAAxAhyM1U:APA91bFLgdr5635Nh1xe2kMXOwo6JaZ7wQV35cGszm9iSnvuwCghesYfaG3eMq-vEKmIZHB09bp6P3gvbA6x7RXRBVCAGNr-1dnZ1Us6OjNYuMbTbZuKdKDMcHS5wVLd8FGPmSkOHj4i";
     private static final String FIREBASE_API_URL = "https://fcm.googleapis.com/fcm/send";
 	
 
@@ -33,4 +33,5 @@ public class AndroidPushNotificationsService {
 
 		return CompletableFuture.completedFuture(firebaseResponse);
 	}
+	
 }
